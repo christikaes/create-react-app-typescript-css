@@ -21,7 +21,7 @@ const path = require('path');
 const chalk = require('chalk');
 const spawn = require('react-dev-utils/crossSpawn');
 
-module.exports = function(
+module.exports = function (
   appPath,
   appName,
   verbose,
@@ -39,10 +39,10 @@ module.exports = function(
 
   // Setup the script rules
   appPackage.scripts = {
-    start: 'react-scripts-ts start',
-    build: 'react-scripts-ts build',
-    test: 'react-scripts-ts test --env=jsdom',
-    eject: 'react-scripts-ts eject',
+    start: 'react-scripts-ts-css start',
+    build: 'react-scripts-ts-css build',
+    test: 'react-scripts-ts-css test --env=jsdom',
+    eject: 'react-scripts-ts-css eject',
   };
 
   fs.writeFileSync(

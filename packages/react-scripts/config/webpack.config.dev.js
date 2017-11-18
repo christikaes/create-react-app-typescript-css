@@ -180,9 +180,12 @@ module.exports = {
             use: [
               require.resolve('style-loader'),
               {
-                loader: require.resolve('css-loader'),
+                loader: require.resolve('typings-for-css-modules-loader'),
                 options: {
                   importLoaders: 1,
+                  modules: true,
+                  namedExport: true,
+                  camelCase: true,
                 },
               },
               {
@@ -262,6 +265,8 @@ module.exports = {
     // https://github.com/jmblog/how-to-optimize-momentjs-with-webpack
     // You can remove this if you don't use Moment.js:
     new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
+    // Ignore changes to generated css.d.ts files
+    new webpack.WatchIgnorePlugin([/css\.d\.ts$/]),
   ],
   // Some libraries import Node modules but don't use them in the browser.
   // Tell Webpack to provide empty mocks for them so importing them works.
